@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofía & Ricard | 12.09.2026</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header id="top">
+        <nav class="container-wide" aria-label="Navegación principal" role="navigation">
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#logistica">Logística</a></li>
+                <li><a href="#alojamiento">Alojamiento</a></li>
+                <li><a href="#rsvp">Confirmar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container reveal">
+            <h1>Sofía & Ricard</h1>
+            <p class="hero-date">12 Septiembre 2026</p>
+            <div id="countdown" role="timer" aria-label="Tiempo restante para la boda">
+                <div class="cd-item">
+                    <span id="days" class="cd-number">00</span>
+                    <span class="cd-label">Días</span>
+                </div>
+                <div class="cd-item">
+                    <span id="hours" class="cd-number">00</span>
+                    <span class="cd-label">Horas</span>
+                </div>
+            </div>
+            <a href="#rsvp" class="btn btn-hero">Confirmar Asistencia</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <div class="container reveal">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="nosotros-grid">
+
+                <div class="story-slider-container">
+                    <div class="story-slider">
+                        <div class="slider-item active">
+                            <img src="img/playa.jpeg" alt="Sofía y Ricard en su primer viaje" loading="lazy">
+                        </div>
+                        <div class="slider-item">
+                            <img src="img/mexico.jpeg" alt="Sofía y Ricard riendo en una cena" loading="lazy">
+                        </div>
+                        <div class="slider-item">
+                            <img src="img/irlanda.jpeg" alt="Sofía y Ricard en la playa" loading="lazy">
+                        </div>
+                        <div class="slider-item">
+                            <img src="img/pedida.jpeg" alt="Sofía y Ricard formales" loading="lazy">
+                        </div>
+                    </div>
+
+                    <div class="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                        <span class="dot" data-index="3"></span>
+                    </div>
+                </div>
+
+                <div class="story-text container-narrow">
+                    <p>
+                        Dicen que las mejores cosas suceden cuando no las buscas, y nuestra
+                        historia es el mejor ejemplo. Lo que empezó como un encuentro casual
+                        en una cocina se convirtió rápidamente en un viaje compartido lleno de
+                        risas, complicidad y, sobre todo, mucha vida.
+                    </p>
+                    <p>
+                        Desde nuestros paseos, visitas culturales y hasta esos atardeceres
+                        frente al mar, hemos aprendido que lo importante no es solo hacia
+                        dónde vamos, sino con quién caminamos. Somos dos personas diferentes
+                        que han encontrado en el otro el equilibrio perfecto y el refugio
+                        donde siempre queremos volver.
+                    </p>
+                    <p>
+                        Hoy, después de tantos momentos construyendo nuestro propio mundo,
+                        queremos dar un paso más. No solo celebramos nuestro amor, sino la
+                        alegría de teneros a todos vosotros como testigos de este "para
+                        siempre" que empezamos a escribir juntos este 12 de septiembre.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="logistica">
+        <div class="container">
+            <h2 class="section-title reveal">Dónde y Cuándo</h2>
+            <div class="photo-placeholder reveal" style="max-width: 600px; margin: 0 auto 30px">
+                <div class="img-clipper">
+                    <img src="img/carmel.jpg" alt="Exterior de la Parroquia" />
+                </div>
+            </div>
+
+            <div class="logistica-grid container-wide">
+
+                <div class="logistica-card reveal">
+                    <div class="card-content">
+                        <i class="fas fa-church icon-detail"></i>
+                        <h3>Ceremonia religiosa</h3>
+                        <p class="card-main">Convocatoria a las 15:30h</p>
+                        <p class="card-sub">Parròquia del Mont Carmel</p>
+                        <p class="card-note"><em>Inicio misa a las 16:00h</em></p>
+                    </div>
+                </div>
+
+                <div class="logistica-card reveal">
+                    <div class="card-content">
+                        <i class="fas fa-cocktail icon-detail"></i>
+                        <h3>Cena & Baile</h3>
+                        <p class="card-main">Velada gastronómica dinámica</p>
+                        <p class="card-sub">Jardines de la ermita</p>
+                        <p class="card-note"><em>A partir de las 18:00h</em></p>
+                    </div>
+                </div>
+
+                <div class="logistica-card reveal">
+                    <div class="card-content">
+                        <i class="fab fa-spotify icon-detail"></i>
+                        <h3>¿Cuál es vuestro hit?</h3>
+                        <p class="card-main"><a href="TU_LINK_DE_SPOTIFY" target="_blank" class="playlist-link" rel="noopener noreferrer">Ayúdanos con la
+                                playlist <i class="fas fa-external-link"></i></a></p>
+                        <p class="card-sub">¡Que el ritmo no pare!</p>
+                        <p class="card-note"><em>Máximo 3-4 canciones por persona</em></p>
+                    </div>
+                </div>
+
+                <div class="logistica-card reveal">
+                    <div class="card-content">
+                        <i class="fas fa-user-tie icon-detail"></i>
+                        <h3>Código de vestimenta</h3>
+                        <p class="card-main">Estilo formal-casual</p>
+                        <p class="card-sub">Apto para celebración en exterior</p>
+                        <p class="card-note"><em>Combinación de elegancia y comodidad</em></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="style-tip container-narrow reveal">
+            <div class="style-tip-content">
+                <i class="fas fa-shoe-prints"></i>
+                <div class="style-tip-text">
+                    <h4>Consejo sobre el calzado</h4>
+                    <p>
+                        Queremos que disfrutéis de cada rincón del jardín sin preocupaciones.<br>
+                        Por ello, recomendamos <strong>calzado cómodo</strong> o llevar un par de respuesto.<br>
+                        ¡Vuestros pies os lo agradecerán!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="kids-notice container-narrow reveal">
+            <p>
+                <i class="fas fa-info-circle"></i>
+                Deseamos que este día sea un respiro para todos. Debido a las características del jardín y al formato del evento,
+                hemos optado por una
+                celebración <strong>solo para adultos</strong>.
+            </p>
+        </div>
+
+        <div class="map-container container-narrow reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24976.651523992197!2d2.1551300830695723!3d41.414042326943715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2b2e8dd5571%3A0xf41c1c189ea1040d!2sParr%C3%B2quia%20Mare%20de%20D%C3%A9u%20del%20Mont%20Carmel!5e0!3m2!1sen!2ses!4v1774430308770!5m2!1sen!2ses" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="transporte-info reveal">
+            <div class="transporte-grid container-narrow">
+                <div class="transporte-item">
+                    <i class="fas fa-bus-alt"></i>
+                    <h4>Transporte Público</h4>
+                    <p>
+                        <strong>Bus: </strong>22, 24 y V19<br>
+                        <strong>Metro: </strong>L5
+                    </p>
+                </div>
+                <div class="transporte-item">
+                    <i class="fas fa-parking"></i>
+                    <h4>Aparcamiento</h4>
+                    <p>
+                        Zona residencial de difícil aparcamiento.<br>
+                        Recomendamos llegar con tiempo o usar <strong>Taxi o VTC</strong>.
+                    </p>
+                </div>
+                <div class="transporte-item">
+                    <i class="fas fa-map-signs"></i>
+                    <h4>Acceso</h4>
+                    <p>
+                        La parroquia está en una <strong>zona elevada</strong>.<br>
+                        El acceso final tiene una ligera pendiente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="alojamiento">
+        <div class="container reveal">
+            <h2 class="section-title">Dónde Alojarse</h2>
+            <p style="margin-bottom: 30px">
+                Hemos seleccionado algunas opciones cerca para vuestra comodidad:
+            </p>
+            <div class="hotel-list container-wide">
+                <a href="https://www.ilunionhotels.com/hoteles/ilunion-bel-art" target="_blank" rel="noopener noreferrer" class="hotel-item">
+                    <div class="hotel-photo">
+                        <img src="img/hotel1.jpeg" alt="Ilunion" />
+                    </div>
+                    <div class="hotel-details">
+                        <p><strong>Hotel Ilunion Bel Art (4*)</strong></p>
+                        <span class="hotel-address">Diseño contemporáneo y confort</span>
+                        <span class="hotel-neighborhood">Baix Guinardó</span>
+                    </div>
+                </a>
+                <a href="https://bcnstop.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
+                    <div class="hotel-photo">
+                        <img src="img/hotel2.jpeg" alt="BCN Stop" />
+                    </div>
+                    <div class="hotel-details">
+                        <p><strong>BCN Stop Sagrada Família (3*)</strong></p>
+                        <span class="hotel-address">Apartamentos ideales para familias</span>
+                        <span class="hotel-neighborhood">Guinardó</span>
+                    </div>
+                </a>
+                <a href="https://www.medicishotel.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
+                    <div class="hotel-photo">
+                        <img src="img/hotel3.jpeg" alt="Medicis" />
+                    </div>
+                    <div class="hotel-details">
+                        <p><strong>Hotel Medicis (2*)</strong></p>
+                        <span class="hotel-address">Funcional y excelente ubicación</span>
+                        <span class="hotel-neighborhood">Baix Guinardó</span>
+                    </div>
+                </a>
+                <a href="https://factorybcn.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
+                    <div class="hotel-photo">
+                        <img src="img/hotel4.jpg" alt="Factory" />
+                    </div>
+                    <div class="hotel-details">
+                        <p><strong>Factory Hostels Barcelona</strong></p>
+                        <span class="hotel-address">Ambiente joven y económico</span>
+                        <span class="hotel-neighborhood">Gràcia / El Guinardó</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <div class="container-wide reveal">
+            <h2 class="section-title">Confirma tu asistencia</h2>
+
+            <div class="confirmacion-header">
+                <p>Nos haría muchísima ilusión contar contigo en nuestro gran día.</p>
+                <p>Por favor, confirma antes del <strong>31 de mayo de 2026</strong>.</p>
+
+                <a href="https://docs.google.com/forms/d/1ppzjXLGYtZFbDP1BClHomnq96WtqW2MqNRp3YJLP3lk" target="_blank" class="btn btn-rsvp">Confirmar Ahora</a>
+
+                <p class="dieta-info">
+                    <i class="fas fa-utensils"></i>
+                    En el formulario podrás indicarnos cualquier alergia o dieta especial.
+                </p>
+            </div>
+
+            <hr class="divider-gold">
+
+            <div class="regalo-container">
+                <p class="regalo-intro">
+                    Nuestra mayor felicidad es compartir este día con vosotros.<br>
+                    Si deseáis hacernos un detalle, agradeceríamos una aportación económica:
+                </p>
+
+                <div class="concepto-pago container-narrow">
+                    <div class="concepto-main">
+                        <span class="label">CONCEPTOS RECOMENDADOS:</span>
+                        <span class="value">Viaje, fondo, proyecto o cena + [Tu nombre]</span>
+                    </div>
+                    <p class="aviso-hacienda">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Por seguridad fiscal, por favor evitad términos como "Boda" o "Regalo".
+                    </p>
+                    <div class="causa-benefica">
+                        <i class="fas fa-heart"></i>
+                        <p>Nos hace ilusión compartir que el 10% de vuestras aportaciones será destinado a [Nombre de la ONG/Causa],
+                            para apoyar su labor en [Breve descripción].</p>
+                    </div>
+                </div>
+
+                <div class="metodos-pago-grid container-wide">
+                    <div class="pago-item">
+                        <i class="fas fa-university icon-light"></i>
+                        <h4>Cuenta Sofía</h4>
+                        <div class="pago-block-wrapper">
+                            <div class="pago-block iban-text" id="iban1">
+                                ES23 0049 6107 7121 1004 2826
+                            </div>
+                            <button onclick="copyToClipboard('iban1', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pago-item">
+                        <i class="fas fa-university icon-light"></i>
+                        <h4>Cuenta Ricard</h4>
+                        <div class="pago-block-wrapper">
+                            <div class="pago-block iban-text" id="iban2">
+                                ES60 0073 0100 5807 6361 6454
+                            </div>
+                            <button onclick="copyToClipboard('iban2', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pago-item">
+                        <i class="fas fa-mobile-alt icon-light"></i>
+                        <h4>Bizum Sofía</h4>
+                        <div class="pago-block-wrapper">
+                            <div class="pago-block" id="bizum1">+34 677 573 803</div>
+                            <button onclick="copyToClipboard('bizum1', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pago-item">
+                        <i class="fas fa-mobile-alt icon-light"></i>
+                        <h4>Bizum Ricard</h4>
+                        <div class="pago-block-wrapper">
+                            <div class="pago-block" id="bizum2">+34 617 826 223</div>
+                            <button onclick="copyToClipboard('bizum2', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button onclick="topFunction()" id="backToTop" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <footer class="main-footer">
+        <div class="container reveal">
+            <div class="footer-content">
+                <p class="footer-quote">"Donde sea, pero contigo."</p>
+                <div class="footer-initials">S & R</div>
+                <p class="footer-hashtag">#BodaSofiaYRicard</p>
+                <div class="footer-credits">Barcelona — 12.09.2026</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

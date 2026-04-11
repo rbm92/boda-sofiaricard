@@ -1,0 +1,1397 @@
+/* =========================================
+           ESTILOS GLOBALES
+           ========================================= */
+:root {
+    --bg-color: #fdfcf0;
+    --text-color: #3e2723;
+    --accent-color: #c5a059;
+    --accent-hover: #a68546;
+    --white: #ffffff;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Cormorant Garamond', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Imágenes con Filtro Sepia */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%) sepia(30%) contrast(1.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter, transform;
+}
+
+/* Efecto Hover: SOLO en Escritorio (Desktop) */
+@media (hover: hover) {
+    img:hover {
+        filter: grayscale(0%) sepia(0%) contrast(1);
+        transform: scale(1.03);
+    }
+
+    .slider-item img:hover {
+        filter: grayscale(0%) sepia(0%) contrast(1) !important;
+        transform: scale(1.03);
+        cursor: pointer;
+    }
+
+    .map-container iframe:hover {
+        filter: grayscale(0) sepia(0) contrast(1);
+    }
+}
+
+.container-narrow {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.container-wide {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* --- BOTONES --- */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-spotify-inline {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    /* A juego con el nuevo estilo redondeado */
+    transition: all 0.3s ease;
+}
+
+.btn-spotify-inline i {
+    font-size: 0.7rem;
+    /* El icono de "external link" un poco más pequeño */
+}
+
+.btn-spotify-inline:hover {
+    background-color: #1DB954;
+    /* El verde Spotify solo en el hover */
+    border-color: #1DB954;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- NAVEGACIÓN --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(253, 252, 240, 0.98);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 25px;
+}
+
+nav ul li a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+}
+
+nav a {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.3s;
+    margin: 0 auto;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- SECCIONES --- */
+section {
+    padding: 60px 20px;
+    display: block;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 40px;
+    /* Padding lateral para que no toque los bordes en pantallas medianas */
+}
+
+.section-title {
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-color);
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 1. HERO */
+#hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+/* La imagen de fondo con filtro de grises */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: grayscale(100%) sepia(15%) contrast(1.15) brightness(0.9);
+    z-index: 1;
+}
+
+/* Capa de contraste para el texto */
+#hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+    z-index: 2;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 3;
+    color: var(--white);
+}
+
+#hero h1 {
+    font-size: 3.8rem;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+#hero .hero-date {
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+    letter-spacing: 5px;
+    color: var(--white);
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+/* Countdown */
+#countdown {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.cd-item {
+    background: rgba(253, 252, 240, 0.7);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 20px;
+    min-width: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cd-number {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    line-height: 1;
+}
+
+/* Los Días mandan */
+#days.cd-number {
+    font-size: 2.8rem;
+}
+
+/* Las Horas acompañan */
+#hours.cd-number {
+    font-size: 2.2rem;
+    margin-top: 5px;
+}
+
+.cd-label {
+    font-size: 0.8rem;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.btn-hero {
+    background-color: var(--accent-color);
+    color: var(--white);
+    margin-top: 20px;
+    /* Aquí controlamos el espacio inferior del Hero */
+}
+
+.btn-hero:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 2. NOSOTROS */
+.nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    text-align: left;
+    margin-top: 40px;
+}
+
+/* =========================================
+   SLIDER DE HISTORIA (Corregido)
+   ========================================= */
+.story-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 450px;
+    /* Altura fija obligatoria */
+    margin: 0 auto;
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    background: #fff;
+    overflow: hidden;
+    /* Corta lo que sobra */
+}
+
+.story-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.story-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.slider-item {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    overflow: hidden;
+}
+
+.story-slider img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) sepia(30%) contrast(1.1);
+    will-change: filter, transform;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dots: Aseguramos que se vean por encima */
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--accent-color);
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--accent-color);
+}
+
+.story-text p {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* 1. EL MARCO (Igual que el slider) */
+.photo-placeholder {
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    /* Padding uniforme por los 4 lados */
+    background: #fff;
+    max-width: 800px;
+    /* Ajusta este valor al ancho que quieras que ocupe */
+    margin: 0 auto 30px;
+    position: relative;
+    box-sizing: border-box;
+    /* Asegura que el padding no estire el marco */
+}
+
+/* 2. EL RECORTE (La "ventana" donde vive la foto) */
+.img-clipper {
+    width: 100%;
+    overflow: hidden;
+    /* Corta lo que sobresalga */
+    position: relative;
+    line-height: 0;
+    /* Elimina huecos en la base */
+
+    /* Mantén esta proporción para que se vea panorámica como en el slider */
+    aspect-ratio: 16 / 9;
+}
+
+/* 3. LA FOTO (Zoom sutil para echar al semáforo) */
+.img-clipper img {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    /* 'cover' asegura que rellene el marco sin deformarse */
+    object-fit: cover;
+
+    /* LA CLAVE: Hacemos zoom solo a la foto, no al marco. 
+     'scale' de 1.2 agranda la foto.
+     'origin: left' hace que el zoom crezca hacia la DERECHA.
+     El semáforo se sale del 'img-clipper' y desaparece, 
+     pero el marco blanco ni se entera ni se mueve. */
+    transform: scale(1.2);
+    transform-origin: left center;
+}
+
+/* 3. LOGISTICA */
+.icon-detail {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.logistica-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 50px auto 40px;
+    align-items: stretch;
+}
+
+.logistica-card {
+    background: #fff;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    min-height: 300px;
+}
+
+.logistica-card h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+.logistica-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(62, 39, 35, 0.05);
+}
+
+.logistica-card .card-note {
+    font-style: italic;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    padding-top: 20px;
+    margin-top: auto;
+    /* Empuja la nota siempre al final de la tarjeta */
+}
+
+.logistica-card .card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-link {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.playlist-link i {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.playlist-link:hover {
+    color: var(--accent-hover);
+}
+
+.playlist-link:hover i {
+    opacity: 1;
+    transform: translate(2px, -2px);
+    color: var(--accent-hover);
+}
+
+/* Clases para uniformizar el texto interno */
+.card-main {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.card-sub {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.card-note {
+    font-size: 0.8rem;
+    padding-top: 15px;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    color: var(--accent-color);
+}
+
+/* Consejo Calzado */
+.style-tip {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f7f0;
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.style-tip-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.style-tip i {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.style-tip h4 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.style-tip p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.style-tip p strong {
+    color: var(--accent-color);
+    /* Resaltamos "calzado cómodo" en dorado */
+    font-weight: 600;
+}
+
+.kids-notice {
+    margin: 40px auto;
+    padding: 20px;
+    border-top: 1px inset rgba(197, 160, 89, 0.15);
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    max-width: 700px;
+    text-align: center;
+}
+
+.kids-notice i {
+    margin-right: 10px;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+.kids-notice p {
+    line-height: 1.6;
+    margin: 0;
+    display: inline-block;
+}
+
+/* Mapa */
+.map-container {
+    margin-top: 40px;
+    width: 100%;
+    border: 1px solid var(--accent-color);
+    padding: 10px;
+    background-color: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: filter 0.5s ease;
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
+    filter: grayscale(0.6) sepia(0.3) contrast(0.9);
+    transition: filter 0.6s ease;
+    pointer-events: auto;
+}
+
+/* Transporte */
+.transporte-info {
+    margin: 40px auto 0;
+    background-color: var(--white);
+    padding: 40px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+.transporte-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.transporte-item i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.transporte-item h4 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.transporte-item p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.transporte-item p strong {
+    color: var(--accent-color);
+}
+
+/* 4. ALOJAMIENTO */
+.hotel-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.hotel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.hotel-item:hover {
+    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.05);
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.hotel-photo {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    overflow: hidden;
+    margin: 0 auto 25px auto;
+}
+
+.hotel-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hotel-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.hotel-details p strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.hotel-address {
+    font-size: 0.85rem;
+    color: #8d775f;
+    font-style: italic;
+    margin-bottom: 15px;
+    display: block;
+    min-height: 2.5em;
+}
+
+.hotel-neighborhood {
+    margin-top: auto;
+    /* Empuja el barrio siempre al final */
+    align-self: center;
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: rgba(197, 160, 89, 0.1);
+    color: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* 5. RSVP */
+#rsvp {
+    background: var(--accent-color);
+    color: var(--white);
+    padding: 80px 20px;
+}
+
+#rsvp .section-title,
+#rsvp h2 {
+    color: var(--white);
+}
+
+#rsvp .section-title::after {
+    background: var(--white);
+}
+
+/* --- BLOQUE CONFIRMACIÓN (NUEVO) --- */
+.confirmacion-header {
+    margin: 40px auto 60px;
+    /* Aire arriba y abajo */
+    max-width: 800px;
+}
+
+.confirmacion-header p {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    color: var(--white);
+    opacity: 0.95;
+}
+
+.dieta-info {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Separador sutil entre confirmar y regalo */
+.divider-gold {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+/* --- BLOQUE REGALO --- */
+.regalo-intro {
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--white);
+}
+
+/* --- BLOQUE CONCEPTO --- */
+.concepto-pago {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.concepto-main {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.concepto-main .label {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.aviso-hacienda {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.copy-success {
+    background-color: #28a745 !important;
+    /* Verde éxito */
+    color: white !important;
+    border-color: #28a745 !important;
+    transform: scale(1.05);
+}
+
+/* --- NOTA BENÉFICA --- */
+.causa-benefica {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.causa-benefica i {
+    color: var(--white);
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.causa-benefica p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-style: italic;
+    text-align: left;
+    margin: 0;
+}
+
+/* --- GRID DE PAGOS UNIFICADO --- */
+.metodos-pago-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pago-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px 20px;
+    transition: all 0.3s ease;
+}
+
+.pago-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.pago-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Contenedor del número + botón */
+.pago-block-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 15px;
+    height: 45px;
+}
+
+.pago-block {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    border-right: none;
+    padding: 0 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón de copiar unificado */
+.btn-copy-pago {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    padding: 0 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 0 4px 4px 0;
+}
+
+.btn-copy-pago:hover {
+    background: var(--white);
+    color: var(--accent-color);
+}
+
+/* Iconos */
+#rsvp .icon-light {
+    color: var(--white) !important;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* --- TEXTOS ADICIONALES --- */
+.alergias-nota {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 35px auto 15px;
+    max-width: 800px;
+}
+
+.btn-rsvp {
+    background-color: var(--white) !important;
+    color: var(--text-color) !important;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.btn-rsvp:hover {
+    background-color: var(--bg-color) !important;
+    transform: translateY(-3px);
+}
+
+/* Flecha flotante */
+#backToTop {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    background-color: var(--text-color);
+    transform: translateY(-5px);
+}
+
+/* Ajuste para móviles  */
+@media (max-width: 480px) {
+    #backToTop {
+        display: block;
+        cursor: pointer;
+        pointer-events: auto !important;
+        touch-action: manipulation;
+        bottom: 30px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        z-index: 9999;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+
+    html {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    h2.section-title {
+        font-size: 1.8rem !important;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    .photo-placeholder {
+        max-width: 95%;
+        /* Aprovechamos más el ancho de la pantalla */
+        padding: 8px;
+        /* Un padding un pelín más fino para que luzca la foto */
+        aspect-ratio: auto;
+        /* Dejamos que el clipper mande */
+        margin-bottom: 20px;
+    }
+
+    /* 2. La "ventana" en móvil */
+    .img-clipper {
+        width: 100%;
+        /* Cambiamos a 4/3 o 1/1 para que la foto tenga más presencia vertical */
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* 3. La foto y el recorte en móvil */
+    .img-clipper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        /* Mantenemos el zoom para asegurar que el semáforo no entre */
+        /* En móvil, un scale de 1.25 suele ser más seguro por la proporción */
+        transform: scale(1.25);
+        transform-origin: left center;
+    }
+
+    .pago-block {
+        font-size: 0.9rem;
+    }
+
+    .nosotros-grid,
+    .transporte-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .transporte-info {
+        padding: 30px 20px;
+    }
+
+    .story-slider-container {
+        max-width: 90%;
+        padding: 5px;
+        min-height: 300px;
+    }
+
+    .story-slider img {
+        height: 350px;
+    }
+
+    @media (hover: none) {
+        .story-slider img:active {
+            filter: grayscale(0%) sepia(0%) contrast(1);
+        }
+    }
+
+    .story-text {
+        text-align: center;
+        padding: 0px 10px;
+    }
+
+    #hero h1 {
+        font-size: 2.3rem;
+        white-space: nowrap;
+        letter-spacing: 1px;
+    }
+
+    nav ul {
+        gap: 12px;
+        padding: 15px 5px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    .logistica-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .logistica-card {
+        min-height: auto;
+        padding: 35px 25px;
+    }
+
+    /* Ajuste hoteles en móvil */
+    .hotel-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 10px;
+    }
+
+    .hotel-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: 380px;
+        min-height: auto;
+        padding: 35px 25px;
+        margin: 0 auto;
+    }
+
+    .hotel-photo {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 20px;
+    }
+
+    /*
+  .hotel-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+
+  .hotel-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    width: 100%;
+  }
+  */
+
+    .hotel-details p strong {
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .hotel-address {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        min-height: 0;
+    }
+
+    .hotel-neighborhood {
+        margin-top: 10px;
+        padding: 8px 18px;
+        font-size: 0.7rem;
+    }
+
+    .style-tip {
+        max-width: 90%;
+        padding: 25px 20px;
+    }
+
+    .style-tip p {
+        font-size: 0.95rem;
+    }
+
+    .kids-notice {
+        max-width: 90%;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .causa-benefica {
+        margin-top: 20px;
+        padding: 15px 15px 0;
+        border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        max-width: 90%;
+    }
+
+    .causa-benefica p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .causa-benefica i {
+        font-size: 1rem;
+        margin-top: 0;
+    }
+
+    .metodos-pago-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pago-item {
+        max-width: 400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .concepto-pago {
+        padding: 15px 10px;
+        max-width: 95%;
+        margin: 0 auto 30px;
+    }
+
+    .concepto-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+
+    .concepto-main .label {
+        margin-right: 0;
+        display: block;
+    }
+
+    .concepto-main .value {
+        display: block;
+        font-weight: 600;
+        color: var(--white);
+        padding: 0 10px;
+    }
+
+    .aviso-hacienda {
+        font-size: 0.75rem;
+        line-height: 1.3;
+    }
+
+    .main-footer {
+        padding: 60px 20px;
+        /* Menos aire vertical en móvil */
+    }
+
+    .footer-quote {
+        font-size: 1.05rem;
+        padding: 0 15px;
+    }
+
+    .footer-initials {
+        font-size: 1.8rem;
+        letter-spacing: 5px;
+    }
+
+    .footer-hashtag {
+        font-size: 0.75rem;
+        margin-bottom: 30px;
+    }
+}
+
+/* FOOTER */
+.main-footer {
+    padding: 80px 20px;
+    background-color: #f5f3e7;
+    color: var(--text-color);
+    text-align: center;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.footer-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    opacity: 0.8;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.footer-initials {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    letter-spacing: 8px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.footer-hashtag {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.footer-credits {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    border-top: 1px solid rgba(197, 160, 89, 0.1);
+    display: inline-block;
+    padding-top: 20px;
+}
