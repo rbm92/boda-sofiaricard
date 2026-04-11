@@ -1115,13 +1115,12 @@ section {
 
     /* 3. La foto y el recorte en móvil */
     .img-clipper img {
-        width: 100%;
-        height: 100%;
+        transform: scale(1);
         object-fit: cover;
+    }
 
-        /* Mantenemos el zoom para asegurar que el semáforo no entre */
-        /* En móvil, un scale de 1.25 suele ser más seguro por la proporción */
-        transform: scale(1.25);
+    .img-zoom-parroquia img {
+        transform: scale(1.3);
         transform-origin: left center;
     }
 
