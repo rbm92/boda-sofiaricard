@@ -418,7 +418,8 @@ section {
 .story-slider img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #fafafa;
     display: block;
     filter: grayscale(100%) sepia(30%) contrast(1.1);
     will-change: filter, transform;
