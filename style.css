@@ -22,9 +22,9 @@ html {
     font-size: 16px;
     scroll-padding-top: 80px;
     -webkit-text-size-adjust: 100%;
-    /* Evita que iOS cambie el tamaño del texto */
-    font-size: 16px;
-    /* Forzamos una base sólida */
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
