@@ -1087,6 +1087,10 @@ section {
         font-size: 16px;
     }
 
+    #hero {
+        padding: 60px 10px !important;
+    }
+
     h1 {
         font-size: clamp(2rem, 8vw, 3.5rem) !important;
         /* Escala fluida: mínimo 2rem, máximo 3.5 */
@@ -1158,16 +1162,30 @@ section {
     }
 
     .story-slider-container {
+        width: 100%;
         max-width: 100%;
-        padding: 10px 0;
-        min-height: auto;
+        /* Definimos una altura fija para el móvil para que todas midan igual */
+        height: 400px !important;
+        margin: 0 auto;
+        padding: 0;
+        /* Quitamos padding para que la foto llegue al borde del marco si quieres */
+        overflow: hidden;
+        border: 1px solid var(--accent-color);
+        background: #fff;
+    }
+
+    .story-slider {
+        height: 100%;
     }
 
     .story-slider img {
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        object-fit: contain;
+        width: 100% !important;
+        height: 100% !important;
+        /* 'cover' hace que la foto llene el espacio sin deformarse */
+        object-fit: cover !important;
+        /* 'center' asegura que el recorte sea equitativo por ambos lados */
+        object-position: center !important;
+        display: block;
     }
 
     @media (hover: none) {
