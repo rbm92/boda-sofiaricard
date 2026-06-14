@@ -7,8 +7,8 @@
     --accent-color: #c5a059;
     --accent-hover: #a68546;
     --white: #ffffff;
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Cormorant Garamond', serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', serif;
 }
 
 * {
@@ -114,38 +114,6 @@ img {
     transform: translateY(-2px);
 }
 
-.btn-spotify-inline {
-    margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    /* A juego con el nuevo estilo redondeado */
-    transition: all 0.3s ease;
-}
-
-.btn-spotify-inline i {
-    font-size: 0.7rem;
-    /* El icono de "external link" un poco más pequeño */
-}
-
-.btn-spotify-inline:hover {
-    background-color: #1DB954;
-    /* El verde Spotify solo en el hover */
-    border-color: #1DB954;
-    color: white;
-    transform: translateY(-2px);
-}
-
 /* --- NAVEGACIÓN --- */
 header {
     position: fixed;
@@ -154,6 +122,36 @@ header {
     z-index: 1000;
     background-color: rgba(253, 252, 240, 0.98);
     border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* Alineación de la cabecera */
+.header-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* El botón del menú oculto por defecto en escritorio */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
 }
 
 nav ul {
@@ -555,31 +553,19 @@ section {
     flex-direction: column;
 }
 
-.playlist-link {
-    color: var(--text-color);
+/* Enlaces dentro de textos que deben ser identificables al instante */
+.link-resaltado {
+    color: var(--accent-color) !important;
+    /* Fuerza el color dorado en vez del marrón heredado */
     font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-.playlist-link i {
-    color: var(--accent-color);
-    font-size: 0.85rem;
-    opacity: 0.7;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.playlist-link:hover {
-    color: var(--accent-hover);
-}
-
-.playlist-link:hover i {
-    opacity: 1;
-    transform: translate(2px, -2px);
-    color: var(--accent-hover);
+/* Al pasar el ratón (Hover) */
+.link-resaltado:hover {
+    color: var(--accent-hover) !important;
+    transform: translateY(-1px);
+    /* Un levísimo despegue hacia arriba que acompaña tu estilo */
 }
 
 /* Clases para uniformizar el texto interno */
@@ -604,9 +590,12 @@ section {
 
 /* Consejo Calzado */
 .style-tip {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
+    max-width: 650px;
+    /* Un pelín más estrecho para que el texto rompa mejor */
+    margin: 25px auto;
+    /* Reducido el espacio exterior arriba y abajo */
+    padding: 20px 30px;
+    /* Menos aire arriba/abajo (20px), mantiene aire a los lados (30px) */
     background-color: #f9f7f0;
     border-top: 1px solid rgba(197, 160, 89, 0.3);
     border-bottom: 1px solid rgba(197, 160, 89, 0.3);
@@ -618,7 +607,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    /* Reducido el salto entre el icono, el título y los párrafos */
 }
 
 .style-tip i {
@@ -638,15 +628,20 @@ section {
 
 .style-tip p {
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: var(--text-color);
-    margin: 0;
+    margin: 0 0 8px 0;
+    /* Margen inferior controlado */
 }
 
 .style-tip p strong {
     color: var(--accent-color);
     /* Resaltamos "calzado cómodo" en dorado */
     font-weight: 600;
+}
+
+.style-tip p:last-child {
+    margin-bottom: 0;
 }
 
 .kids-notice {
@@ -710,7 +705,7 @@ section {
 .transporte-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
     text-align: center;
 }
 
@@ -736,88 +731,7 @@ section {
     color: var(--accent-color);
 }
 
-/* 4. ALOJAMIENTO */
-.hotel-list {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.hotel-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 30px;
-    background: #fff;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.1);
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.hotel-item:hover {
-    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.05);
-    border-color: var(--accent-color);
-    transform: translateY(-5px);
-}
-
-.hotel-photo {
-    width: 140px;
-    height: 140px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    border: 2px solid var(--accent-color);
-    overflow: hidden;
-    margin: 0 auto 25px auto;
-}
-
-.hotel-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hotel-details {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: 100%;
-}
-
-.hotel-details p strong {
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.hotel-address {
-    font-size: 0.85rem;
-    color: #8d775f;
-    font-style: italic;
-    margin-bottom: 15px;
-    display: block;
-    min-height: 2.5em;
-}
-
-.hotel-neighborhood {
-    margin-top: auto;
-    /* Empuja el barrio siempre al final */
-    align-self: center;
-    display: inline-block;
-    font-size: 0.75rem;
-    background-color: rgba(197, 160, 89, 0.1);
-    color: var(--accent-color);
-    padding: 4px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-}
-
-/* 5. RSVP */
+/* 4. RSVP */
 #rsvp {
     background: var(--accent-color);
     color: var(--white);
@@ -911,39 +825,6 @@ section {
     color: white !important;
     border-color: #28a745 !important;
     transform: scale(1.05);
-}
-
-/* --- NOTA BENÉFICA --- */
-.causa-benefica {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.2);
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
-    max-width: 550px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.causa-benefica i {
-    color: var(--white);
-    font-size: 1.1rem;
-    opacity: 0.8;
-    margin-top: 3px;
-    flex-shrink: 0;
-}
-
-.causa-benefica p {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-style: italic;
-    text-align: left;
-    margin: 0;
 }
 
 /* --- GRID DE PAGOS UNIFICADO --- */
@@ -1087,42 +968,74 @@ section {
         font-size: 16px;
     }
 
-    header .container,
-    header .container-wide {
-        max-width: 100% !important;
-        padding: 0 !important;
-        width: 100% !important;
-    }
-
     #hero {
         padding: 60px 10px !important;
     }
 
+    /* --- NUEVO MENÚ MÓVIL DESPLEGABLE --- */
+    .header-wrapper {
+        justify-content: flex-end;
+        height: 70px;
+        padding: 0 25px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        /* Mostramos el botón en móvil */
+    }
+
+    /* Transformación del botón a una "X" cuando está activo */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* El menú pasa a ser una cortina oculta */
     nav {
-        padding: 0 !important;
-        width: 100% !important;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Escondido a la derecha */
+        width: 80%;
+        /* Ocupa casi toda la pantalla */
+        max-width: 300px;
+        height: 100vh;
+        background-color: rgba(253, 252, 240, 0.98);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: right;
+    }
+
+    /* Cuando se activa, entra elegantemente */
+    nav.active {
+        right: 0;
     }
 
     nav ul {
-        display: flex;
-        justify-content: space-between;
-        gap: 2px !important;
-        padding: 20px 5px;
-        width: 100% !important;
-        max-width: 100vw;
-    }
-
-    nav ul li {
-        flex: 1;
-        text-align: center;
+        flex-direction: column;
+        /* Enlaces uno debajo de otro */
+        gap: 35px !important;
+        /* Más espacio para pulsar cómodamente */
+        padding: 0 !important;
+        width: auto !important;
     }
 
     nav ul li a {
-        font-size: 13px !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap;
-        display: block;
-        width: 100%;
+        font-size: 18px !important;
+        /* Fuente más grande y legible en móvil */
+        letter-spacing: 2px !important;
+        display: inline-block;
     }
 
     h1 {
@@ -1185,14 +1098,25 @@ section {
         font-size: 0.8rem;
     }
 
-    .nosotros-grid,
-    .transporte-grid {
+    .nosotros-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
+    .transporte-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        width: 100%;
+    }
+
+    .transporte-item {
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .transporte-info {
-        padding: 30px 20px;
+        padding: 40px 25px;
+        width: 95%;
     }
 
     .story-slider-container {
@@ -1258,52 +1182,10 @@ section {
         width: 100%;
     }
 
-    /* Ajuste hoteles en móvil */
-    .hotel-list {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 0 10px;
-    }
-
-    .hotel-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        max-width: 380px;
-        min-height: auto;
-        padding: 35px 25px;
-        margin: 0 auto;
-    }
-
-    .hotel-photo {
-        width: 130px;
-        height: 130px;
-        margin-bottom: 20px;
-    }
-
-    .hotel-details p strong {
-        font-size: 1.15rem;
-        margin-bottom: 8px;
-        line-height: 1.2;
-    }
-
-    .hotel-address {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-        min-height: 0;
-    }
-
-    .hotel-neighborhood {
-        margin-top: 10px;
-        padding: 8px 18px;
-        font-size: 0.7rem;
-    }
-
     .style-tip {
-        max-width: 90%;
-        padding: 25px 20px;
+        max-width: 95%;
+        padding: 15px 20px;
+        margin: 20px auto;
     }
 
     .style-tip p {
@@ -1314,27 +1196,6 @@ section {
         max-width: 90%;
         padding: 15px;
         font-size: 0.9rem;
-    }
-
-    .causa-benefica {
-        margin-top: 20px;
-        padding: 15px 15px 0;
-        border-top: 1px dashed rgba(255, 255, 255, 0.2);
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        max-width: 90%;
-    }
-
-    .causa-benefica p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        text-align: center;
-    }
-
-    .causa-benefica i {
-        font-size: 1rem;
-        margin-top: 0;
     }
 
     .metodos-pago-grid {
