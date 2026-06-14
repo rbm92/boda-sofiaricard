@@ -6,7 +6,7 @@ let isScrolling = false;
 
 const handleScroll = () => {
     if (!isScrolling) {
-    isScrolling = true;
+        isScrolling = true;
         window.requestAnimationFrame(() => {
             reveal();
             updateActiveMenu();
@@ -56,20 +56,26 @@ function updateActiveMenu() {
     let current = "";
 
     sections.forEach(section => {
-        if (window.scrollY >= (section.offsetTop - 200)) {
+        const sectionTop = section.offsetTop;
+        // Ajuste elástico de 120px para que cambie justo cuando el título asoma
+        if (window.scrollY >= (sectionTop - 120)) {
             current = section.getAttribute('id');
         }
     });
 
     navLi.forEach(a => {
         a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) a.classList.add('active');
+        if (a.getAttribute('href').includes(current)) {
+            a.classList.add('active');
+        }
     });
 }
 
 function toggleBackToTop() {
     const btn = document.getElementById('backToTop');
-    if (btn) btn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+    if (btn) {
+        btn.style.display = (window.scrollY > 400) ? 'block' : 'none';
+    }
 }
 
 // 4. COPY TO CLIPBOARD (Mejorado con feedback visual)
@@ -79,7 +85,7 @@ async function copyToClipboard(elementId, btnElement) {
         await navigator.clipboard.writeText(text);
         const originalIcon = btnElement.innerHTML;
         btnElement.innerHTML = '<i class="fas fa-check"></i>';
-        btnElement.classList.add('copy-success'); // Podrías darle un estilo verde en CSS
+        btnElement.classList.add('copy-success');
 
         setTimeout(() => {
             btnElement.innerHTML = originalIcon;
@@ -100,12 +106,10 @@ if (slider && dots.length > 0) {
         if (dots[index]) dots[index].classList.add('active');
     };
 
-    // Usamos un pequeño "debounce" para que el scroll no sea tan pesado
     let isScrollingSlider;
     slider.addEventListener('scroll', () => {
         window.clearTimeout(isScrollingSlider);
         isScrollingSlider = setTimeout(() => {
-            // Calculamos el ancho real en el momento del scroll
             const width = slider.getBoundingClientRect().width;
             const index = Math.round(slider.scrollLeft / width);
             updateActiveDot(index);
@@ -126,18 +130,45 @@ if (slider && dots.length > 0) {
     });
 }
 
+// --- CONTROL DEL MENÚ HAMBURGUESA MÓVIL (CORREGIDO) ---
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.querySelector('nav'); // CORREGIDO: Selecciona la etiqueta <nav> directamente
+const navLinks = document.querySelectorAll('nav ul li a');
+
+if (menuToggle && mainNav) {
+    // Alternar menú al pulsar el botón
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita que el click se propague al documento
+        menuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+    });
+
+    // Cerrar menú automáticamente al pulsar cualquier enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+        });
+    });
+
+    // MEJORA: Cierra la cortina si el invitado pulsa fuera del menú móvil
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+        }
+    });
+}
+
 // Función para volver arriba
 function topFunction() {
-    // Opción 1: Intento con scroll suave moderno
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-
-    // Respaldo inmediato para móviles (Safari/iOS)
-    // Si el navegador no soporta 'smooth', lo enviamos al inicio
-    document.body.scrollTop = 0; // Para Safari
-    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
+    // Respaldo para navegadores antiguos
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 
 // INICIO
