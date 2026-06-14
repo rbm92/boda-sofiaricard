@@ -5,26 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sofía & Ricard | 12.09.2026</title>
-
-    <link href=" https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header id="top">
-        <nav class="container-wide" aria-label="Navegación principal" role="navigation">
-            <ul>
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#logistica">Logística</a></li>
-                <li><a href="#alojamiento">Alojamiento</a></li>
-                <li><a href="#rsvp">Confirmar</a></li>
-            </ul>
-        </nav>
+        <div class="container-wide header-wrapper">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav aria-label="Navegación principal" role="navigation">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#logistica">Logística</a></li>
+                    <li><a href="#rsvp">Confirmar</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="hero">
@@ -132,12 +135,11 @@
 
                 <div class="logistica-card reveal">
                     <div class="card-content">
-                        <i class="fab fa-spotify icon-detail"></i>
-                        <h3>¿Cuál es vuestro hit?</h3>
-                        <p class="card-main"><a href="https://open.spotify.com/socialsession/4NVY69CvgZ23nBfURUKLYj?si=D4GjNDr9Q8-T-MsYbffKrw&utm_source=share-options-sheet&utm_medium=share-link" target="_blank" class="playlist-link" rel="noopener noreferrer">Ayúdanos con la
-                                playlist <i class="fas fa-external-link"></i></a></p>
-                        <p class="card-sub">¡Que el ritmo no pare!</p>
-                        <p class="card-note"><em>Máximo 3-4 canciones por persona</em></p>
+                        <i class="fas fa-camera icon-detail"></i>
+                        <h3>¿Compartes tus fotos?</h3>
+                        <p class="card-main">Álbum en <a href="https://www.wedshoots.com" target="_blank" class="link-resaltado">Wedshoots</a></p>
+                        <p class="card-sub">Únete mediante el código <strong>ES064cdb88</strong></p>
+                        <p class="card-note"><em>Ayúdanos a capturar cada momento</em></p>
                     </div>
                 </div>
 
@@ -145,9 +147,11 @@
                     <div class="card-content">
                         <i class="fas fa-user-tie icon-detail"></i>
                         <h3>Código de vestimenta</h3>
-                        <p class="card-main">Estilo formal-casual</p>
-                        <p class="card-sub">Apto para celebración en exterior</p>
-                        <p class="card-note"><em>Combinación de elegancia y comodidad</em></p>
+                        <p class="card-main">Casual-Formal / Traje de cóctel</p>
+                        <p class="card-sub">Temática: gama de colores otoñales</p>
+                    </div>
+                    <div class="card-note">
+                        Combinación de elegancia y comodidad
                     </div>
                 </div>
 
@@ -156,24 +160,17 @@
 
         <div class="style-tip container-narrow reveal">
             <div class="style-tip-content">
-                <i class="fas fa-shoe-prints"></i>
-                <div class="style-tip-text">
-                    <h4>Consejo sobre el calzado</h4>
-                    <p>
-                        Queremos que disfrutéis de cada rincón del jardín sin preocupaciones.<br>
-                        Por ello, recomendamos <strong>calzado cómodo</strong> o llevar un par de respuesto.<br>
-                        ¡Vuestros pies os lo agradecerán!
-                    </p>
-                </div>
+                <i class="fas fa-leaf"></i>
+                <h4>Un rincón con historia y encanto</h4>
+                <p>El banquete se celebrará en un precioso jardín privado de la iglesia, un espacio rústico y lleno de magia. Al ser un entorno natural, os podéis encontrar con desniveles y adoquines antiguos.</p>
+                <p>Recomendamos <strong>calzado cómodo, estable o con cuña</strong>.<br>¡Vuestros pies os lo agradecerán!</p>
             </div>
         </div>
 
         <div class="kids-notice container-narrow reveal">
             <p>
                 <i class="fas fa-info-circle"></i>
-                Deseamos que este día sea un respiro para todos. Debido a las características del jardín y al formato del evento,
-                hemos optado por una
-                celebración <strong>solo para adultos</strong>.
+                Deseamos que este día sea un respiro para todos. Debido a las características del jardín y al formato del evento, hemos optado por una celebración <strong>solo para adultos</strong>.
             </p>
         </div>
 
@@ -187,15 +184,15 @@
                     <i class="fas fa-bus-alt"></i>
                     <h4>Transporte Público</h4>
                     <p>
-                        <strong>Bus: </strong>22, 24 y V19<br>
-                        <strong>Metro: </strong>L5
+                        <strong>Bus: </strong>22 y V19 (Santuari-Murtra) o 24 (Carmel-Mülhberg)<br><br>
+                        <strong>Metro: </strong>L5 (Carmel) - funcionará toda la noche.
                     </p>
                 </div>
                 <div class="transporte-item">
                     <i class="fas fa-parking"></i>
                     <h4>Aparcamiento</h4>
                     <p>
-                        Zona residencial de difícil aparcamiento.<br>
+                        Zona residencial de difícil aparcamiento.<br><br>
                         Recomendamos llegar con tiempo o usar <strong>Taxi o VTC</strong>.
                     </p>
                 </div>
@@ -203,61 +200,10 @@
                     <i class="fas fa-map-signs"></i>
                     <h4>Acceso</h4>
                     <p>
-                        La parroquia está en una <strong>zona elevada</strong>.<br>
+                        La parroquia está en una <strong>zona elevada</strong>.<br><br>
                         El acceso final tiene una ligera pendiente.
                     </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="alojamiento">
-        <div class="container reveal">
-            <h2 class="section-title">Dónde Alojarse</h2>
-            <p style="margin-bottom: 30px">
-                Hemos seleccionado algunas opciones cerca para vuestra comodidad:
-            </p>
-            <div class="hotel-list container-wide">
-                <a href="https://www.ilunionhotels.com/hoteles/ilunion-bel-art" target="_blank" rel="noopener noreferrer" class="hotel-item">
-                    <div class="hotel-photo">
-                        <img src="img/hotel1.jpeg" alt="Ilunion" />
-                    </div>
-                    <div class="hotel-details">
-                        <p><strong>Hotel Ilunion Bel Art (4*)</strong></p>
-                        <span class="hotel-address">Diseño contemporáneo y confort</span>
-                        <span class="hotel-neighborhood">Baix Guinardó</span>
-                    </div>
-                </a>
-                <a href="https://bcnstop.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
-                    <div class="hotel-photo">
-                        <img src="img/hotel2.jpeg" alt="BCN Stop" />
-                    </div>
-                    <div class="hotel-details">
-                        <p><strong>BCN Stop Sagrada Família (3*)</strong></p>
-                        <span class="hotel-address">Apartamentos ideales para familias</span>
-                        <span class="hotel-neighborhood">Guinardó</span>
-                    </div>
-                </a>
-                <a href="https://www.medicishotel.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
-                    <div class="hotel-photo">
-                        <img src="img/hotel3.jpeg" alt="Medicis" />
-                    </div>
-                    <div class="hotel-details">
-                        <p><strong>Hotel Medicis (2*)</strong></p>
-                        <span class="hotel-address">Funcional y excelente ubicación</span>
-                        <span class="hotel-neighborhood">Baix Guinardó</span>
-                    </div>
-                </a>
-                <a href="https://factorybcn.com/" target="_blank" rel="noopener noreferrer" class="hotel-item">
-                    <div class="hotel-photo">
-                        <img src="img/hotel4.jpg" alt="Factory" />
-                    </div>
-                    <div class="hotel-details">
-                        <p><strong>Factory Hostels Barcelona</strong></p>
-                        <span class="hotel-address">Ambiente joven y económico</span>
-                        <span class="hotel-neighborhood">Gràcia / El Guinardó</span>
-                    </div>
-                </a>
             </div>
         </div>
     </section>
@@ -268,7 +214,7 @@
 
             <div class="confirmacion-header">
                 <p>Nos haría muchísima ilusión contar contigo en nuestro gran día.</p>
-                <p>Por favor, confirma antes del <strong>31 de mayo de 2026</strong>.</p>
+                <p>Por favor, confirma antes del <strong>30 de junio de 2026</strong>.</p>
 
                 <a href="https://forms.gle/m64qWapTuf3GHJgbA" target="_blank" class="btn btn-rsvp">Confirmar Ahora</a>
 
@@ -288,17 +234,13 @@
 
                 <div class="concepto-pago container-narrow">
                     <div class="concepto-main">
-                        <span class="label">CONCEPTOS RECOMENDADOS:</span>
+                        <span class="label">CONCEPTOS RECOMENDADOS:</span><br>
                         <span class="value">Viaje, fondo, proyecto o cena + [Tu nombre]</span>
                     </div>
                     <p class="aviso-hacienda">
                         <i class="fas fa-exclamation-circle"></i>
                         Por seguridad fiscal, por favor evitad términos como "Boda" o "Regalo".
                     </p>
-                    <div class="causa-benefica">
-                        <i class="fas fa-heart"></i>
-                        <p>Hoy empezamos a construir nuestro hogar y nos hace ilusión que vuestro cariño también ayude a levantar otros. Por eso, el 10% de vuestras aportaciones irá destinado a la ONG <u><a href="https://projectesostre.org/es" target="_blank">Projecte Sostre</a></u>, para que nadie se quede sin un techo.</p>
-                    </div>
                 </div>
 
                 <div class="metodos-pago-grid container-wide">
@@ -333,7 +275,7 @@
                         <h4>Bizum Sofía</h4>
                         <div class="pago-block-wrapper">
                             <div class="pago-block" id="bizum1">+34 677 573 803</div>
-                            <button onclick="copyToClipboard('bizum1', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                            <button onclick="copyToClipboard('bizum1', this)" class="btn-copy-pago" aria-label="Copiar número de teléfono">
                                 <i class="far fa-copy"></i>
                             </button>
                         </div>
@@ -344,7 +286,7 @@
                         <h4>Bizum Ricard</h4>
                         <div class="pago-block-wrapper">
                             <div class="pago-block" id="bizum2">+34 617 826 223</div>
-                            <button onclick="copyToClipboard('bizum2', this)" class="btn-copy-pago" aria-label="Copiar número de cuenta">
+                            <button onclick="copyToClipboard('bizum2', this)" class="btn-copy-pago" aria-label="Copiar número de teléfono">
                                 <i class="far fa-copy"></i>
                             </button>
                         </div>
