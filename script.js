@@ -6,13 +6,13 @@ let isScrolling = false;
 
 const handleScroll = () => {
     if (!isScrolling) {
+    isScrolling = true;
         window.requestAnimationFrame(() => {
             reveal();
             updateActiveMenu();
             toggleBackToTop();
             isScrolling = false;
         });
-        isScrolling = true;
     }
 };
 
